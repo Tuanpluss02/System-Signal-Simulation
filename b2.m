@@ -1,0 +1,17 @@
+clf;
+n=0:49;
+x = 0.8.^n;
+x1 = [0.3 -0.3 0.4];
+y1 = [1 0.9 0.8];
+yy1 = filter(x1,y1,x);
+x2 = [0.2 -0.5 0.3];
+y2 = [1 0.7 0.85];
+yy2 = filter(x2,y2,x);
+yfinal = yy1.*yy2;
+% yfinal = conv(yy1,yy2);
+subplot(311);
+plot(yy1);
+subplot(312);
+plot(yy2);
+subplot(313);
+plot(n,yfinal);

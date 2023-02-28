@@ -1,0 +1,13 @@
+d = fdesign.nyquist(4,.01,80);
+hd = design(d,'kaiserwin','SystemObject',true);
+f = fdesign.nyquist(4,'N,TW',12,0.2);
+Hd1 = design(f,'equiripple','zerophase',true,'SystemObject',true);
+Hd2 = design(f,'equiripple','zerophase',false,'SystemObject',true);
+[Hr_zerophase,~] = zerophase(Hd1);
+[Hr,W] = zerophase(Hd2);
+plot(W,Hr_zerophase,'k','linewidth',2);
+xlabel('Radians/sample'); ylabel('Amplitude');
+hold on;
+plot(W,Hr,'r');
+axis tight; grid on;
+legend('with ''ZeroPhase'', true','with ''ZeroPhase'' false');
