@@ -1,0 +1,1 @@
+out = tich_phan(@(x)x*exp(-x),50, -2, 0)
